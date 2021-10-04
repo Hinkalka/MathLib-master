@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks; не использованные библиотеки
 
 namespace MathLib
 {
@@ -119,31 +119,31 @@ namespace MathLib
         {
             if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))
             {
-                for(int i = 0; i < arr1.GetLength(0); i++)
+                for(int i = 0; i < arr1.GetLength(0); i++) //Затрагивается не вся область данных матрицы
                 {
-                    for(int y = 0; y < arr1.GetLength(1); y++)
+                    for(int y = 0; y < arr1.GetLength(1); y++) //Затрагивается не вся область данных матрицы
                     {
                         arr1[i, y] += arr2[i, y];
                     }
                 }
             }
-            return (arr1);
+            return (arr1); //возвращается первоначальная матрица
         }
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
         {
-            double[,] arr = { { 0 },{ 0 } };
+            double[,] arr = { { 0 },{ 0 } };//неверное создание матрицы
             if (arr1.GetLength(0) == arr2.GetLength(1))
             {
                 arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
-                for (int i = 0; i < arr.GetLength(0); i++)
+                for (int i = 0; i < arr.GetLength(0); i++)//аргументов может быть больше одного
                 {
-                    for (int y = 0; y < arr.GetLength(1); y++)
+                    for (int y = 0; y < arr.GetLength(1); y++)//аргументов может быть больше одного
                     {
                         arr[i, y] = 0;
-                        for (int k = 0; k < arr1.GetLength(1); k++)
+                        for (int k = 0; k < arr1.GetLength(1); k++)//аргументов может быть больше одного
                         {
 
-                            arr[i, y] += arr1[i, k] * arr2[k, y];
+                            arr[i, y] += arr1[i, k] * arr2[k, y];//неверное приведение матриц
                         }
                     }
                 }
